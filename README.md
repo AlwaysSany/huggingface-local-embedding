@@ -171,11 +171,6 @@ docker-compose up --build
 - This project is tested with Python 3.13.3 but should work with Python 3.11+.
 - I haved used huggingface sentence-transformers for embedding. You can use any other embedding model from huggingface,
 see https://huggingface.co/models?library=sentence-transformers for more details.
-- I have used FastAPI for the API.
-- I have used Uvicorn for the server.
-- I have used Pyngrok for the ngrok server.
-- I have used Docker for the containerization.
-- I have used Docker Compose for the containerization.
 
 ---
 
