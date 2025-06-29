@@ -1,0 +1,17 @@
+[project]
+name = "huggingface-local-embedding"
+version = "0.1.0"
+description = "A local embedding model for Hugging Face Transformers"
+readme = "README.md"
+requires-python = ">=3.13.3"
+dependencies = [
+    "fastapi>=0.115.14",
+    "jedi>=0.16",
+    "llama-index>=0.12.44",
+    "llama-index-embeddings-huggingface>=0.5.5",
+    "nest-asyncio>=1.6.0",
+    "pillow>=11.2.1",
+    "pyngrok>=7.2.11",
+    "transformers>=4.53.0",
+    "uvicorn>=0.35.0",
+]
