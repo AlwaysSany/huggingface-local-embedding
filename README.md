@@ -110,6 +110,11 @@ uvicorn huggingface_embedding_server:app --host 0.0.0.0 --port 8000
 
 #### Using only [uv](https://github.com/astral-sh/uv)
 
+- Install uv:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
 - Create a virtual environment and install dependencies:
 ```bash
 uv sync
