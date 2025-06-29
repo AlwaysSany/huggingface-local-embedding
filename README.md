@@ -186,13 +186,11 @@ To contribute, please fork the repository and submit a pull request. If you have
 ---
 
 ## TODO
-- [ ] Add a way to upload a file and embed it
-- [ ] Add a way to embed a text file
-- [ ] Add a way to embed a pdf file
-- [ ] Add a way to embed a csv file
-- [ ] Add a way to embed a json file
-- [ ] Add a way to embed a txt file
-- [ ] Add a way to embed a docx file
+- [ ] Add a way to upload a file from UI and embed it
+- [ ] Add a way to embed a pdf, csv, json, docx, etc. file.
+- [ ] Add a way to embed a video file.
+- [ ] Add a way to embed a audio file.
+
 
 ## Contact
 
