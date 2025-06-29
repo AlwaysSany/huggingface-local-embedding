@@ -44,6 +44,43 @@ huggingface-local-embedding/
 
 ## Setup Guide
 
+## Setting ngrok Secrets
+
+### In Google Colab
+- Use Colab secrets:
+  ```python
+  from google.colab import userdata
+  userdata.set_secret('NGROK_AUTH_TOKEN')
+  ```
+- The notebook will read the token and set it for ngrok automatically.
+
+![Colab Secrets](screenshots/google-colab-hugging-face-fastapi-server.png)
+
+### Locally (.env file)
+- Create a `.env` file in the project root using a copy of the `.env.example` file, and set the `NGROK_AUTH_TOKEN` to your ngrok token.
+
+  ```bash
+  cp .env.example .env
+  ```
+
+  ```env
+  NGROK_AUTH_TOKEN=your-ngrok-token-here
+  ```
+
+- The Docker Compose setup will load this automatically. For local runs, you can load it in your shell:
+  ```bash
+  export $(cat .env | xargs)
+  ```
+
+- Or set the token in your Python code before starting ngrok:
+  ```python
+  import os
+  from pyngrok import ngrok
+  ngrok.set_auth_token(os.getenv('NGROK_AUTH_TOKEN'))
+  ```
+
+---
+
 ### 1. Standalone (Local) Setup
 
 #### Using pip
@@ -56,7 +93,7 @@ pip install -r requirements.txt
 uvicorn huggingface_embedding_server:app --host 0.0.0.0 --port 8000
 ```
 
-#### Using [uv+pip](https://github.com/astral-sh/uv) (Fast Python package manager)
+#### Using [uv+pip](https://github.com/astral-sh/uv)
 
 - Install uv:
   ```bash
@@ -71,14 +108,13 @@ uv pip install -r requirements.txt
 uvicorn huggingface_embedding_server:app --host 0.0.0.0 --port 8000
 ```
 
-#### Using only [uv](https://github.com/astral-sh/uv) (Fast Python package manager)
+#### Using only [uv](https://github.com/astral-sh/uv)
 
 - Create a virtual environment and install dependencies:
 ```bash
-uv sync --python 3.13
+uv sync
 uvicorn huggingface_embedding_server:app --host 0.0.0.0 --port 8000
 ```
-
 
 ### 2. Dockerized Setup
 
@@ -111,42 +147,7 @@ docker-compose up --build
 
 ---
 
-## Setting ngrok Secrets
 
-### In Google Colab
-- Use Colab secrets:
-  ```python
-  from google.colab import userdata
-  userdata.set_secret('NGROK_AUTH_TOKEN')
-  ```
-- The notebook will read the token and set it for ngrok automatically.
-
-![Colab Secrets](screenshots/google-colab-hugging-face-fastapi-server.png)
-
-### Locally (.env file)
-- Create a `.env` file in the project root using a copy of the `.env.example` file, and set the `NGROK_AUTH_TOKEN` to your ngrok token.
-
-  ```bash
-  cp .env.example .env
-  ```
-
-  ```env
-  NGROK_AUTH_TOKEN=your-ngrok-token-here
-  ```
-
-- The Docker Compose setup will load this automatically. For local runs, you can load it in your shell:
-  ```bash
-  export $(cat .env | xargs)
-  ```
-  
-- Or set the token in your Python code before starting ngrok:
-  ```python
-  import os
-  from pyngrok import ngrok
-  ngrok.set_auth_token(os.getenv('NGROK_AUTH_TOKEN'))
-  ```
-
----
 
 ## API Endpoints
 
