@@ -23,7 +23,7 @@ huggingface-local-embedding/
 ## Features
 - Local text and multi-modal (image, text) embedding
 - FastAPI server with REST endpoints
-- Uses LlamaIndex and Hugging Face models
+- Uses LlamaIndex and Hugging Face models for embedding
 - Docker and Colab ready
 - Python 3.13.3 compatible
 
@@ -169,6 +169,13 @@ docker-compose up --build
 - For Hugging Face model access, you may need to set `HF_TOKEN` as a Colab secret or environment variable if using private models.
 - For best performance, use a machine with sufficient RAM and CPU/GPU for model inference.
 - This project is tested with Python 3.13.3 but should work with Python 3.11+.
+- I haved used huggingface sentence-transformers for embedding. You can use any other embedding model from huggingface,
+see https://huggingface.co/models?library=sentence-transformers for more details.
+- I have used FastAPI for the API.
+- I have used Uvicorn for the server.
+- I have used Pyngrok for the ngrok server.
+- I have used Docker for the containerization.
+- I have used Docker Compose for the containerization.
 
 ---
 
